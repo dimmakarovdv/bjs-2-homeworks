@@ -1,3 +1,2 @@
-console.log("Запуск тестов");
-require('./task.js');
-console.log("Тесты завершены успешно");
+const { testCase } = require('./homework-3/Tas.js');
+testCase();
