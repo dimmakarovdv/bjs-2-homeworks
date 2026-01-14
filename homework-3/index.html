@@ -1,0 +1,25 @@
+<!-- tests.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Autotests</title>
+</head>
+<body>
+  <h1>Autotests</h1>
+  <pre id="results"></pre>
+
+  <script src="src/task.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      try {
+        const results = testCase();
+        const output = document.getElementById("results");
+        output.textContent = JSON.stringify(results, null, 2);
+      } catch (e) {
+        alert(e.message);
+      }
+    });
+  </script>
+</body>
+</html>
