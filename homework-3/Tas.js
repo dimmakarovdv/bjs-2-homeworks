@@ -43,6 +43,7 @@ function averageEvenElementsWorker(...arr) {
   if (evenNumbers.length === 0) return 0;
 
   const sum = evenNumbers.reduce((a, b) => a + b, 0);
+  
   return Number((sum / evenNumbers.length).toFixed(2));
 }
 
