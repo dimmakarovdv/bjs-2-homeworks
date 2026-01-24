@@ -10,20 +10,12 @@ console.log(compareArrays([1, 2, 3], [2, 3, 1]));
 console.log(compareArrays([8, 1, 2], [8, 1, 2]));
 
 function getUsersNamesInAgeRange(users, gender) {
-  const agesSumAndCount = users
-    .filter(user => user.gender === gender)
-    .map(user => user.age)
-    .reduce(
-      (acc, currValue, _, srcArray) => ({
-        sum: acc.sum + currValue,
-        count: srcArray.length
-      }),
-      { sum: 0, count: 0 }
-    );
-
-  if (agesSumAndCount.count === 0) return 0;
-
-  return Math.round(agesSumAndCount.sum / agesSumAndCount.count * 10) / 10;
+  return users
+    .filter((user) => user.gender === gender)
+    .map((user) => user.age)
+    .reduce((acc, age, index, arr) => {
+      return acc + age / arr.length;
+    }, 0);
 }
 
 const people = [
@@ -40,10 +32,12 @@ const people = [
   { firstName: "Михаил", secondName: "Шаров", age: 22, gender: "мужской" },
   { firstName: "Владислав", secondName: "Давыдов", age: 40, gender: "мужской" },
   { firstName: "Илья", secondName: "Казаков", age: 35, gender: "мужской" },
-  { firstName: "Евгений", secondName: "Кузьмин", age: 19, gender: "мужской" }
+  { firstName: "Евгений", secondName: "Кузьмин", age: 19, gender: "мужской" },
 ];
 
-console.log(getUsersNamesInAgeRange(people, "мужской"));// 32
-console.log(getUsersNamesInAgeRange(people, "женский"));// 27.4
-console.log(getUsersNamesInAgeRange([], "женский"));// 0
-console.log(getUsersNamesInAgeRange(people, "инопланетянин"));// 0
+console.log(getUsersNamesInAgeRange(people, "мужской")); // 32
+console.log(getUsersNamesInAgeRange(people, "женский")); // 27.4
+console.log(getUsersNamesInAgeRange([], "женский")); // 0
+console.log(getUsersNamesInAgeRange(people, "инопланетянин")); // 0
+
+
