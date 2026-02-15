@@ -1,6 +1,15 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-...
-.idea
+node_modules/
+package-lock.json
+.local/
+.idea/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.DS_Store
+Thumbs.db
+
+.env
+.env.local
+secrets.json
+config.local.js
+credentials.json
